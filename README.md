@@ -24,7 +24,7 @@ directory (for the tests to succeed the server must be running).
 API Examples 
 ------------
 Show all users
-http://localhost:9999/transfers/getUser/1
+http://localhost:9999/transfers/getUsers
 
 Show balance for user1
 http://localhost:9999/transfers/getUser/1
