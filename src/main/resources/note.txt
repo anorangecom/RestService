@@ -1,0 +1,17 @@
+--- generate project 
+mvn archetype:generate -DgroupId=com.anorange.restful -DartifactId=RestService -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+
+
+mvn eclipse:clean
+mvn eclipse:eclipse -Dwtpversion=2.0
+
+--package all
+mvn package
+
+-- run
+java -cp target/RESTfulService-1.jar com.alex.restful.App
+
+
+
+-- maven force update of dependencies   
+mvn clean install -U
