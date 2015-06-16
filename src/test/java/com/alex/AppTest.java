@@ -5,17 +5,33 @@ import java.io.IOException;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.alex.dto.Transfer;
 import com.alex.dto.User;
+import com.alex.rest.TransferService;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
-public class AppTest {	
+public class AppTest {
+	
+	private static final double DELTA = 1e-15;
 
 	@Test
     public void AppTest()   {
-        Assert.assertTrue( true );
-    }
+        //Assert.assertTrue( true );
+                
+        TransferService s = new TransferService();        
+        User u = s.getUser("1");        
+        Assert.assertEquals(u.getId(), 1);
+        
+                
+        Transfer t = s.transfer("1", "2", "100.0");
+        Assert.assertEquals(t.getUserTo().getBalance(), 1100.0, DELTA);
+        Assert.assertEquals(t.getUserFrom().getBalance(), 900.0, DELTA);
+        
+                
+        
+        }
 	
 	
     /*
